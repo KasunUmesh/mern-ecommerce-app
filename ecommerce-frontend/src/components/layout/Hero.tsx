@@ -5,7 +5,7 @@ import RelatedProducts from './RelatedProducts'
 const Hero = () => {
   return (
     <section>
-      <div className='mx-auto max-w-[1440px] px-6 lg:px-20 bg-hero bg-cover bg-center bg-no-repeat h-[744px] w-full '>
+      <div className='mx-auto max-w-full px-6 lg:px-20 bg-hero bg-cover bg-center bg-no-repeat h-[744px] w-full '>
         <div className='relative top-24 xl:top-32'>
           <h4 className='uppercase text-[18px] font-[600] tracking-wider'>TRENDY TREASURES</h4>
           <h2 className='text-[41px] leading-tight md:text-[48px] md:leading-[1.3] mb-4 font-bold capitalize max-w-[40rem]'>Elevate Your Look <span className='text-[#fe784f]'>With Every Click.</span> Shop Today!</h2>
@@ -21,8 +21,8 @@ const Hero = () => {
           </div>
 
           {/* NewCollections */}
-          <div>
-            <RelatedProducts/>
+          <div className='mt-16'>
+            {/* <RelatedProducts/> */}
           </div>
         </div>
       </div>
