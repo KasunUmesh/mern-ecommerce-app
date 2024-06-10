@@ -9,7 +9,7 @@ const Footer = () => {
 
   return (
     <footer className='flex items-center justify-center pb-8 pt-20'>
-      <div className='mx-auto max-w-[1440px] px-6 lg:px-20 flex w-full flex-col gap-11'>
+      <div className='mx-auto max-w-full px-6 lg:px-20 flex w-full flex-col gap-11'>
         <div className='flex flex-col items-start justify-center gap-[10%] md:flex-row'>
           <Link to={'/'} className='mb-10 text-[20px] font-[700]'>ShoppingHub</Link>
           <div className='flex flex-wrap gap-8 sm:justify-between md:flex-1'>

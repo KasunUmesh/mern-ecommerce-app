@@ -1,10 +1,12 @@
 import React from 'react'
 import { TbTruckReturn } from 'react-icons/tb'
 import about from '../../assets/about.png'
+import { GrSecure } from "react-icons/gr";
+import { MdSupportAgent } from "react-icons/md";
 
 const About = () => {
   return (
-    <section className='mx-auto max-w-[1440px] px-6 lg:px-20 py-12 xl:py-32'>
+    <section className='mx-auto max-w-full px-6 lg:px-20 py-12 xl:py-32'>
       {/* container */}
       <div className='flex flex-col gap-8 xl:flex-row'>
         {/* left */}
@@ -23,7 +25,7 @@ const About = () => {
             </div>
             <div className='flex items-center justify-center gap-x-4'>
               <div className='h-16 min-w-16 bg-[#fe784f] flex items-center justify-center rounded-md'>
-                <TbTruckReturn className='text-white text-2xl'/>
+                <GrSecure  className='text-white text-2xl'/>
               </div>
               <div>
                 <h4 className='text-[18px] font-[600]'>Secure Payment Options</h4>
@@ -32,7 +34,7 @@ const About = () => {
             </div>
             <div className='flex items-center justify-center gap-x-4'>
               <div className='h-16 min-w-16 bg-[#fe784f] flex items-center justify-center rounded-md'>
-                <TbTruckReturn className='text-white text-2xl'/>
+                <MdSupportAgent  className='text-white text-2xl'/>
               </div>
               <div>
                 <h4 className='text-[18px] font-[600]'>Live Customer Support</h4>

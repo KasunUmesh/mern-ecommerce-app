@@ -4,7 +4,7 @@ import Item from '../card/Item'
 
 const NewArrivals = () => {
   return (
-    <section className='bg-[#f8f7f4] mx-auto max-w-[1440px] px-6 lg:px-20 p-12 xl:py-28'>
+    <section className='bg-[#f8f7f4] mx-auto max-w-full px-6 lg:px-20 p-12 xl:py-28'>
       {/* title */}
       <div className='text-center max-w-xl mx-auto'>
         <h3 className='text-[29px] leading-tight md:text-[36px] md:leading-[1.3] mb-4 font-semibold'>New Arrivals</h3>
