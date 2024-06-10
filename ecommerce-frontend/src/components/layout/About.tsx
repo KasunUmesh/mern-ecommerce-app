@@ -6,7 +6,7 @@ const About = () => {
   return (
     <section className='mx-auto max-w-[1440px] px-6 lg:px-20 py-12 xl:py-32'>
       {/* container */}
-      <div className='flex flex-col xl:flex-row'>
+      <div className='flex flex-col gap-8 xl:flex-row'>
         {/* left */}
         <div className='flex-1'>
           <h3 className='text-[29px] leading-tight md:text-[36px] md:leading-[1.3] mb-4 font-semibold capitalize'>Unveiling Our Product's Key Features!</h3>
