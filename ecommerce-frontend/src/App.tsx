@@ -5,6 +5,9 @@ import Home from './pages/Home'
 import Category from './pages/Category'
 import Product from './pages/Product'
 import Footer from './components/layout/Footer'
+import clothingbanner from './assets/clothingbanner.png'
+import cosmeticsbanner from './assets/cosmeticsbanner.png'
+import electronicsbanner from './assets/electronicsbanner.png'
 
 function App() {
   
@@ -15,9 +18,9 @@ function App() {
         <Header/>
         <Routes>
           <Route path='/' element={<Home/>}/>
-          <Route path='/clothing' element={<Category/>}/>
-          <Route path='/cosmetics' element={<Category/>}/>
-          <Route path='/electronics' element={<Category/>}/>
+          <Route path='/clothing' element={<Category category={"clothing"} banner={clothingbanner}/>}/>
+          <Route path='/cosmetics' element={<Category category={"cosmetics"} banner={cosmeticsbanner}/>}/>
+          <Route path='/electronics' element={<Category category={"electronics"} banner={electronicsbanner}/>}/>
           <Route path='/product' element={<Product/>}>
             <Route path=':productId' element={<Product/>}/>
           </Route>
