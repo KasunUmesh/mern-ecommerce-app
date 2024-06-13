@@ -1,11 +1,25 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React from 'react'
+import React, { useContext } from 'react'
 import { VscSettings  } from "react-icons/vsc";
-import all_products from '../utils/all_products';
 import Item from '../components/card/Item';
 import { Link } from 'react-router-dom';
+import { ShopContext } from '../context/ShopContext';
 
-const Category = ({banner, category}: any) => {
+interface CategoryProps {
+  banner: string;
+  category: string;
+}
+
+const Category: React.FC<CategoryProps> = ({banner, category}) => {
+
+  const context = useContext(ShopContext);
+
+  if (!context) {
+    return null;
+  }
+
+  const { all_products } = context;
+
   return (
     <section className='mx-auto max-w-full px-6 lg:px-20 bg-[#f8f7f4]'>
       <div>

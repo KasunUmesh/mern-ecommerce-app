@@ -8,6 +8,8 @@ import Footer from './components/layout/Footer'
 import clothingbanner from './assets/clothingbanner.png'
 import cosmeticsbanner from './assets/cosmeticsbanner.png'
 import electronicsbanner from './assets/electronicsbanner.png'
+import Cart from './pages/Cart'
+import Login from './pages/Login'
 
 function App() {
   
@@ -24,6 +26,8 @@ function App() {
           <Route path='/product' element={<Product/>}>
             <Route path=':productId' element={<Product/>}/>
           </Route>
+          <Route path='/cart-page' element={<Cart/>}/>
+          <Route path='/login' element={<Login/>}/>
         </Routes>
         <Footer/>
       </BrowserRouter>

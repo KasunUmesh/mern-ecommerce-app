@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 const Item = ({id, name, image, old_price, new_price}: any) => {
   return (
-    <Link to={''} className='bg-white p-4 rounded-xl relative'>
+    <Link onClick={window.scrollTo(0, 0)} to={`/product/${id}`} className='bg-white p-4 rounded-xl relative'>
         <div className='flex items-center justify-center'>
             <img src={image} alt="Popular Product" height={211} width={211} className='rounded-lg drop-shadow-xl absolute bottom-48'/>
         </div>

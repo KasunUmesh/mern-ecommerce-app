@@ -50,7 +50,7 @@ const Header = () => {
           {/* Button */}
           <div className='flex items-center justify-between gap-x-3 sm:gap-x-4 text-[16px] font-[700]'>
             <div className='flex items-center justify-between sm:gap-x-5'>
-              <NavLink to={'/'} className={'flex'}>
+              <NavLink to={'/cart-page'} className={'flex'}>
                 <HiOutlineShoppingCart className='p-2 h-10 w-10 hover:text-[#fe784f]'/>
                 <span className='relative flex items-center justify-center w-5 h-5 rounded-full bg-[#fe784f] text-[#f8f7f4] text-[14px] font-[500] -top-2 right-3'>{0}</span>
               </NavLink>
