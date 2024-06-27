@@ -10,7 +10,7 @@ const CartItems = () => {
         return null;
     }
 
-    const {all_products, cartItems, addToCart, removeFromCart} = context;
+    const {all_products, cartItems, addToCart, removeFromCart, getTotalCartAmount} = context;
 
   return (
     <section className='mx-auto max-w-full px-6 lg:px-20 bg-[#f8f7f4] rounded-3xl'>
@@ -50,7 +50,7 @@ const CartItems = () => {
                     <div>
                         <div className='flex items-center justify-between py-4'>
                             <h4 className='text-[16px] font-[500]'>Subtotal:</h4>
-                            <h4 className='text-[#7B7B7B] font-semibold'>${0}</h4>
+                            <h4 className='text-[#7B7B7B] font-semibold'>${getTotalCartAmount()}</h4>
                         </div>
                         <hr />
                         <div className='flex items-center justify-between py-4'>
@@ -60,7 +60,7 @@ const CartItems = () => {
                         <hr />
                         <div className='flex items-center justify-between py-4'>
                             <h4 className='text-[18px] font-[600]'>Total:</h4>
-                            <h4 className='text-[18px] font-[700]'>${0}</h4>
+                            <h4 className='text-[18px] font-[700]'>${getTotalCartAmount()}</h4>
                         </div>
                     </div>
                     <button className='ring-1 ring-[#222222] text-[15px] font-[500] bg-[#222222] px-7 py-[10px] text-white transition-all hover:bg-[#222222]/90 w-44 rounded-xl'>Checkout</button>
