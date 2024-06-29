@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 const Login = () => {
 
-  const [state, setState] = useState("Sign Up");
+  const [state, setState] = useState("Login");
 
   return (
     <section className='mx-auto max-w-full px-6 lg:px-20 flex items-center justify-center flex-col pt-24 pb-24 bg-[#f8f7f4]'>

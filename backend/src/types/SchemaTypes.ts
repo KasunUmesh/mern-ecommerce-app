@@ -10,3 +10,11 @@ export interface IProduct extends mongoose.Document {
     date?: Date,
     available?: boolean
 }
+
+export interface IUser extends mongoose.Document {
+    name: string,
+    email: string,
+    password: string,
+    cartData: object,
+    date?: Date
+}

@@ -7,7 +7,9 @@ import jwt from "jsonwebtoken";
 import multer from "multer";
 import cors from "cors";
 import path from "path";
-import ProductModel from "../src/models/product.model"
+import ProductModel from "../src/models/product.model";
+import UserModel from "../src/models/user.model";
+import { error } from 'console';
 
 
 const port = 4000;
@@ -98,3 +100,54 @@ app.get('/allproducts', async(req: express.Request, res: express.Response) => {
     console.log("All Products Fetched");
     res.send(products);
 })
+
+// Creating endpoint for registration user
+app.post('/signup', async(req: express.Request, res: express.Response) => {
+    let check = await UserModel.findOne({email: req.body.email});
+    if (check) {
+        return res.status(400).json({
+            success: false,
+            errors: "Existing user found with same email"
+        });
+    }
+    let cart: any = {};
+    for (let i = 0; i < 300; i++) {
+        cart[i] = 0;
+    }
+    const user = new UserModel({
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password,
+        cartData: cart
+    })
+
+    await user.save();
+    const data = {
+        user:{
+            id: user.id
+        },
+    };
+    const token = jwt.sign(data, "secret_ecom");
+    res.json({success: true, token: token});
+})
+
+// Creting endpoint for login user
+app.post('/login', async (req: express.Request, res: express.Response) => {
+    let user = await UserModel.findOne({email: req.body.email});
+    if (user) {
+        const passMatch = req.body.password === user.password;
+        if (passMatch) {
+            const data = {
+                user: {
+                    id: user.id
+                },
+            };
+            const token = jwt.sign(data, "secret_ecom");
+            res.json({success: true, token: token});
+        } else {
+            res.json({success: false, error: "Wrong Password"});
+        }
+    } else {
+        res.json({success: false, error: "Wrong Email"});
+    }
+});
