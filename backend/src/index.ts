@@ -45,10 +45,42 @@ const storage = multer.diskStorage({
 const upload = multer({storage: storage});
 
 // Creating endpoint for images
-app.use('images', express.static('src/upload/images'))
+app.use('/images', express.static('src/upload/images'))
 app.post("/upload", upload.single('product'), (req: express.Request, res: express.Response) => {
     res.json({
         success: 1,
         image_url: `http://localhost:${port}/images/${req.file?.filename}`
     })
+})
+
+// Schema for creating products
+const Product = mongoose.model("Product", {
+    id: {
+        type: Number,
+        required: true
+    },
+    name: {
+        type: String,
+        required: true
+    },
+    image: {
+        type: String,
+        required: true
+    },
+    new_price: {
+        type: Number,
+        required: true
+    },
+    old_price: {
+        type: Number,
+        required: true
+    },
+    date: {
+        type: Date,
+        default: Date.now
+    },
+    available: {
+        type: Boolean,
+        default: true
+    }
 })
