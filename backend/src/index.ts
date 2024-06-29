@@ -7,6 +7,7 @@ import jwt from "jsonwebtoken";
 import multer from "multer";
 import cors from "cors";
 import path from "path";
+import ProductModel from "../src/models/product.model"
 
 
 const port = 4000;
@@ -53,34 +54,47 @@ app.post("/upload", upload.single('product'), (req: express.Request, res: expres
     })
 })
 
-// Schema for creating products
-const Product = mongoose.model("Product", {
-    id: {
-        type: Number,
-        required: true
-    },
-    name: {
-        type: String,
-        required: true
-    },
-    image: {
-        type: String,
-        required: true
-    },
-    new_price: {
-        type: Number,
-        required: true
-    },
-    old_price: {
-        type: Number,
-        required: true
-    },
-    date: {
-        type: Date,
-        default: Date.now
-    },
-    available: {
-        type: Boolean,
-        default: true
+app.post('/addproduct', async (req: express.Request, res: express.Response) => {
+    let products = await ProductModel.find({});
+    let id;
+    if(products.length > 0) {
+        let last_product_array = products.slice(-1);
+        let last_product = last_product_array[0];
+        id = last_product.id + 1;
+    } else {
+        id = 1;
     }
+
+    const product = new ProductModel({
+        id: id,
+        name: req.body.name,
+        image: req.body.image,
+        category: req.body.category,
+        new_price: req.body.new_price,
+        old_price: req.body.old_price,
+    })
+    console.log(product);
+    await product.save();
+    console.log("Product Saved");
+    res.json({
+        success: true,
+        name: req.body.name,
+    })    
+})
+
+// Creating API for deleting products
+app.post('/removeproduct', async(req: express.Request, res: express.Response) => {
+    await ProductModel.findOneAndDelete({id: req.body.id});
+    console.log("Product Deleted");
+    res.json({
+        success: true,
+        name:req.body.name
+    })
+})
+
+// Creating API for getting all products
+app.get('/allproducts', async(req: express.Request, res: express.Response) => {
+    let products = await ProductModel.find({});
+    console.log("All Products Fetched");
+    res.send(products);
 })
