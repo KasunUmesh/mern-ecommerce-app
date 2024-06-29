@@ -1,8 +1,8 @@
-import { LayoutDashboard, School2 } from "lucide-react";
+import { LayoutDashboard, ShoppingCart  } from "lucide-react";
 import "./App.css";
 import Sidebar, { SidebarItem } from "./components/layout/sidebar";
 import { Link, BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import School from "./pages/schoolAndClub";
+import AddProduct from "./pages/AddProduct";
 import Dashboard from "./pages/dashboard";
 import { useState } from "react";
 
@@ -25,18 +25,18 @@ function App() {
             />
           </Link>
 
-          <Link to="/school" onClick={() => handleItemClick("/school")}>
+          <Link to="/addproduct" onClick={() => handleItemClick("/addproduct")}>
             <SidebarItem
-              icon={<School2 size={20} />}
-              text="School"
-              active={activeItem === "/school"}
+              icon={<ShoppingCart  size={20} />}
+              text="Products"
+              active={activeItem === "/addproduct"}
             />
           </Link>
         </Sidebar>
 
         <Routes>
           <Route path="/" element={<Dashboard />} />
-          <Route path="/school" element={<School />} />
+          <Route path="/addproduct" element={<AddProduct />} />
         </Routes>
       </div>
     </Router>
