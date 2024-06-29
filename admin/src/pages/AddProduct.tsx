@@ -8,6 +8,7 @@ import axios from "axios";
 
 
 interface Data {
+  id: number;
   name: string;
   image: string;
   category: string;
@@ -88,6 +89,26 @@ export default function AddProduct() {
   useEffect(() => {
     fetchInfo();
   }, []);
+
+  const removeProduct = async (id: any) => {
+    try {
+      await axios.delete('http://localhost:4000/removeproduct', {
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        data: {
+          id: id
+        }
+      });
+
+      await fetchInfo();
+
+    } catch (error) {
+      console.log('Error removing product', error);
+      
+    }
+  }
 
 
   return (
@@ -231,6 +252,7 @@ export default function AddProduct() {
                               <Pen className="p-1" />
                             </button> */}
                             <button
+                              onClick={() => removeProduct(product.id)}
                               className={
                                 "bg-red-600 text-white p-1 rounded-full mx-2 hover:bg-red-700 hover:scale-[110%] transition duration-300 ease-out"
                               }
