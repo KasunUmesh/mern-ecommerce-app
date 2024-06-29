@@ -22,6 +22,10 @@ const ProductSchema = new mongoose.Schema<SchemaTypes.IProduct> ({
         type: Number,
         required: true
     },
+    category: {
+        type: String,
+        required: true
+    },
     date: {
         type: Date,
         default: Date.now

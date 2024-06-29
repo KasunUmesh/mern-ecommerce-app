@@ -6,6 +6,7 @@ export interface IProduct extends mongoose.Document {
     image: string,
     new_price: number,
     old_price: number,
+    category: string,
     date?: Date,
     available?: boolean
 }

@@ -68,6 +68,7 @@ export default function AddProduct() {
         const addProductData = addProductResponse.data;
         if (addProductData.success) {
           alert("Product added successfully");
+          await fetchInfo();
         } else {
           alert("Something went wrong");
         }
@@ -165,6 +166,8 @@ export default function AddProduct() {
                       Product Category
                     </h4>
                     <select
+                      value={productDetails.category}
+                      onChange={changeHandle}
                       name="category"
                       id=""
                       className="bg-gray-50 border-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-purple-500 block w-full py-2 px-4 leading-tight focus:outline-none focus:bg-white"
@@ -262,29 +265,6 @@ export default function AddProduct() {
                           </td>
                         </tr>
                       ))}
-                      {/* <tr className=" border-b border-indigo-200 hover:bg-indigo-100 text-black text-center text-base">
-                        <td className="px-6 py-4">S001</td>
-                        <td className="px-6 py-4">Panadura Collage</td>
-                        <td className="px-6 py-4">PC</td>
-                        <td className="px-6 py-4">MIX</td>
-                        <td className="px-6 py-4">MIX</td>
-                        <td className="px-6 py-4">
-                          <button
-                            className={
-                              "bg-green-600 text-white p-1 rounded-full mx-2 hover:bg-green-700 hover:scale-[110%] transition duration-300 ease-out"
-                            }
-                          >
-                            <Pen className="p-1"/>
-                          </button>
-                          <button
-                            className={
-                              "bg-red-600 text-white p-1 rounded-full mx-2 hover:bg-red-700 hover:scale-[110%] transition duration-300 ease-out"
-                            }
-                          >
-                            <Trash2 className="p-1"/>
-                          </button>
-                        </td>
-                      </tr> */}
                     </tbody>
                   </table>
                 </div>
